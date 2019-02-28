@@ -64,32 +64,10 @@ document.onkeyup = function(event) {
         document.getElementById("numWins").textContent = wins;
         // document.onkeyup = null;
     };
-
-  
-
-
-
-    // document.getElementById("reset").addEventListener('click', function(){
-    //     answerIndex = Math.floor(Math.random() * computerChoice.length);
-    //     word = computerChoice.splice(answerIndex, 1);
-    //     wordArray = word[0].split("");
-    //     userProgress = [];
-    //     for (let i=0; i < wordArray.length; i++) {
-    //         userProgress.push("_ ");
-    //     };
-    //     document.getElementById("wrongLetters").textContent = "";
-    //     chances = 10;
-    //     document.getElementById("chances").textContent = chances;
-    //     document.getElementById("userProgress").textContent = userProgress.join("");
-    //     //render();
-    // })
-
-    
     
     render ();
 
 }
-
 
 document.getElementById("reset").addEventListener('click', function(){
     computerChoice = ["portend", "ornithology", "prescience", "wondrous"];
@@ -109,5 +87,4 @@ document.getElementById("reset").addEventListener('click', function(){
     wrongLetters = [];
     document.getElementById("userProgress").style.display = "block";
     document.getElementById("userProgress").textContent = userProgress.join("");
-    //render();
 })
