@@ -5,24 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Guessing Game</title>
+    <style type="text/CSS">
+        body {
+            background-image: url("frog-prince.jpg");
+        }
+        
+        .entireThing {
+            margin: 0 auto;
+            width: 800px;
+            justify-content: center;
+        }
+        
+        div, h1 {
+            font-family: Helvetica, serif;
+            font-size: 50px;
+            color: whitesmoke;
+            font-weight: 300;
+        }
 
+        #chances, button, #numLosses, #numWins {
+            background-color: darkgreen;
+        }
+    </style>
 
-    
-<!-- Add bootstrap later to beautify -->
 </head>
 <body>
+    <div class="entireThing"></section>
         <h1>Word Game</h1>
         <!-- ids to hook into later -->
-        <div id="end"><span id="gameOver"></span></div>
-        <div id="userProgress"></div>
-        <div id="correctAnswer"></div>
+        <div id="end"><span id="gameOver"><p></p></span></div>
+        <div id="userProgress"><p></p></div>
+        <div id="correctAnswer"><p></p></div>
         <div id="wins">Wins: <span id="numWins">0</span></div>
         <div id="losses">Losses: <span id="numLosses">0</span></div>
+        <button type="reset" id="reset"><p>Reset</p></button>
         <hr>
-        <div id="wrongLetters"></div>
+        <div id="wrongLetters"><p></p></div>
         <div id="chancesLeft">Number of chances to guess left: <span id="chances">10</span></div>
         <script type="text/javascript" src="logic.js">
         </script>
-
+    </div>
 </body>
 </html>

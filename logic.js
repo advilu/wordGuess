@@ -2,7 +2,7 @@ console.log("loaded");
 // to see if content is loading
 
 
-let computerChoice = ["portend", "ornithology", "prescience", "wondrous"];
+let computerChoice = ["amphibian", "spotted newt", "salamander", "tadpole", "ornate horned frog"];
 
 let answerIndex = Math.floor(Math.random() * computerChoice.length);
 console.log(answerIndex);
@@ -34,7 +34,7 @@ document.onkeyup = function(event) {
     let userInput = event.key.toLowerCase();
     console.log(userInput);
 
-    for(let j = 0; j < wordArray.length; j++) {
+    for (let j = 0; j < wordArray.length; j++) {
         if(userInput === wordArray[j]) {
             userProgress[j] = userInput;
             
@@ -43,7 +43,7 @@ document.onkeyup = function(event) {
         // console.log(userProgress);
     } 
 
-    if(wordArray.indexOf(userInput) === -1){
+    if (wordArray.indexOf(userInput) === -1){
         wrongLetters.push(userInput);
         document.getElementById("wrongLetters").textContent = wrongLetters.join(" ");
         chances--;
@@ -54,7 +54,7 @@ document.onkeyup = function(event) {
         document.getElementById("gameOver").textContent = "GAME OVER";
         document.getElementById("correctAnswer").textContent = word;
         document.getElementById("userProgress").style.display = "none";
-        document.onkeyup = null;
+        // document.onkeyup = null;
         losses++;
         document.getElementById("numLosses").textContent = losses;
     };
@@ -62,11 +62,52 @@ document.onkeyup = function(event) {
     if (userProgress.indexOf("_ ") === -1) {
         wins++;
         document.getElementById("numWins").textContent = wins;
-        document.onkeyup = null;
+        // document.onkeyup = null;
     };
+
+  
+
+
+
+    // document.getElementById("reset").addEventListener('click', function(){
+    //     answerIndex = Math.floor(Math.random() * computerChoice.length);
+    //     word = computerChoice.splice(answerIndex, 1);
+    //     wordArray = word[0].split("");
+    //     userProgress = [];
+    //     for (let i=0; i < wordArray.length; i++) {
+    //         userProgress.push("_ ");
+    //     };
+    //     document.getElementById("wrongLetters").textContent = "";
+    //     chances = 10;
+    //     document.getElementById("chances").textContent = chances;
+    //     document.getElementById("userProgress").textContent = userProgress.join("");
+    //     //render();
+    // })
 
     
     
     render ();
 
 }
+
+
+document.getElementById("reset").addEventListener('click', function(){
+    computerChoice = ["portend", "ornithology", "prescience", "wondrous"];
+    answerIndex = Math.floor(Math.random() * computerChoice.length);
+    word = computerChoice.splice(answerIndex, 1);
+    wordArray = word[0].split("");
+    userProgress = [];
+    for (let i=0; i < wordArray.length; i++) {
+        userProgress.push("_ ");
+    };
+    document.getElementById("wrongLetters").textContent = "";
+    document.getElementById("correctAnswer").textContent = "";
+    document.getElementById("gameOver").textContent = "";
+    chances = 10;
+    document.getElementById("chances").textContent = chances;
+    console.log(userProgress)
+    wrongLetters = [];
+    document.getElementById("userProgress").style.display = "block";
+    document.getElementById("userProgress").textContent = userProgress.join("");
+    //render();
+})
